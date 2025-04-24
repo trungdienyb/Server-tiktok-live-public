@@ -1,0 +1,85 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Live Interaction Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TikTok Live Interaction Tracker</h1>
+            <div class="subtitle">Theo dõi bình luận, quà tặng và tương tác trong phiên trực tiếp TikTok</div>
+        </header>
+        
+        <div class="connection-panel">
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Nhập username TikTok (không cần @)" autocomplete="off">
+                <button id="connectBtn">Kết Nối</button>
+            </div>
+            
+            <div id="status" class="status disconnected">Chưa kết nối</div>
+        </div>
+        
+        <div class="stats-panel" id="statsPanel">
+            <div class="stat">
+                <span class="stat-label">Người xem:</span>
+                <span class="stat-value" id="viewerCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Lượt thích:</span>
+                <span class="stat-value" id="likeCount">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Diamonds:</span>
+                <span class="stat-value" id="diamondCount">0</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="speechToggle" class="speech-toggle">Bật Đọc Tên</button>
+            <button id="clearEvents" class="clear-btn">Xóa Tất Cả</button>
+            <div class="settings">
+                <select id="speechVolume">
+                    <option value="1">Âm lượng: 100%</option>
+                    <option value="0.8">Âm lượng: 80%</option>
+                    <option value="0.6">Âm lượng: 60%</option>
+                    <option value="0.4">Âm lượng: 40%</option>
+                    <option value="0.2">Âm lượng: 20%</option>
+                </select>
+                <select id="speechRate">
+                    <option value="0.8">Tốc độ: Chậm</option>
+                    <option value="1" selected>Tốc độ: Bình thường</option>
+                    <option value="1.2">Tốc độ: Nhanh</option>
+                    <option value="1.5">Tốc độ: Rất nhanh</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="speechStatus">Đọc tên: Tắt</div>
+        
+        <div class="interactions-container">
+            <div class="interactions">
+                <div class="panel">
+                    <h3>Bình luận</h3>
+                    <div id="comments" class="events-container"></div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Quà tặng</h3>
+                    <div id="gifts" class="events-container"></div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Lượt thích & Tham gia</h3>
+                    <div id="other" class="events-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
